@@ -46,16 +46,16 @@ var Building = {
 var Gates = {
 	"type":"FeatureCollection",
 		"features":[
-			{"type":"Feature","properties":{"Name":"Gate 2","id":"2"},
+			{"type":"Feature","properties":{"Name":"Gate 2","id":2},
 			"geometry":{"type":"Point","coordinates":[80.21900296211243,12.827503880387054]}},
 			
-			{"type":"Feature","properties":{"Name":"Gate 1","id":"1"},
+			{"type":"Feature","properties":{"Name":"Gate 1","id":1},
 			"geometry":{"type":"Point","coordinates":[80.21894931793213,12.831395370315937]}},
 
-			{"type":"Feature","properties":{"Name":"Gate 4","id":"4"},
+			{"type":"Feature","properties":{"Name":"Gate 4","id":4},
 			"geometry":{"type":"Point","coordinates":[80.21664261817932,12.83137444848801]}},
 
-			{"type":"Feature","properties":{"Name":"Gate 3","id":"3"},
+			{"type":"Feature","properties":{"Name":"Gate 3","id":3},
 			"geometry":{"type":"Point","coordinates":[80.2167284488678,12.827451575004963]}}
 		]};
 
