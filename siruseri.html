@@ -55,38 +55,12 @@
                  }
                }
 
-            var polya = {
-                         "type": "Feature",
-                          "properties": {
-                          "Levels":"G+5",
-                           "popupContent": "This is a 5 Storey Building!"
-                       },
-                         "geometry": {
-                         "type": "Polygon",
-        
-                 }
-               };
 
-              L.geoJson(polya , {
+              L.geoJson(Building, {
                   onEachFeature: onEachFeature
                }).addTo(map);
 
-           var polyb = {
-                         "type": "Feature",
-                          "properties": {
-                          "Levels":"G+7",
-                           "popupContent": "This is a 7 Storey Building!"
-                       },
-                         "geometry": {
-                         "type": "Polygon",
-        
-                 }
-               };
-
-              L.geoJson(polyb , {
-                  onEachFeature: onEachFeature
-               }).addTo(map);
-
+           
 
              var geojsonMarkerOptions = {
                    radius: 8,
