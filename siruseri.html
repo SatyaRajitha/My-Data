@@ -77,12 +77,9 @@
                   };
 
                L.geoJson(Gates, {
-              pointToLayer: function (feature, latlng) {
-               var marker = new L.CircleMarker( latlng, geojsonMarkerOptions );
-                markerMap[feature.id] = marker;
-               return marker;
-               
-                  }
+                  pointToLayer: function (feature, latlng) {
+                  return L.circleMarker(latlng, geojsonMarkerOptions);
+                 }
                }).addTo(map);
 
 		
