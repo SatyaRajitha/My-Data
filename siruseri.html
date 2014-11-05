@@ -52,9 +52,8 @@
             
 
                 function onEachFeature(feature, layer) {
-                 var popupContent="<p>feature.properties.popupContent</p>";
-                 
-               // does this feature have a property named popupContent?
+                 var popupContent=feature.properties.popupContent;               
+               
                 if (feature.properties && feature.properties.popupContent) {
                 layer.bindPopup(feature.properties.popupContent);
                  }
@@ -77,10 +76,34 @@
                   };
 
                L.geoJson(Gates, {
-                  pointToLayer: function (feature, latlng) {
-                  return L.circleMarker(latlng, geojsonMarkerOptions);
-                 }
+               pointToLayer: function (feature, latlng) {
+               return L.circleMarker(latlng, geojsonMarkerOptions);
+               }
                }).addTo(map);
+              
+             var myStyle = {
+                "color": "#ff65ee",
+                "weight": 5,
+                "opacity": 0.65
+               };
+
+             L.geoJson(Utilities,{
+               style : myStyle 
+                    
+               }).addTo(map);
+
+
+             function onEachFeature(feature, layer) {
+                 var popupContent=feature.properties.Name;               
+                 if (feature.properties) {
+                layer.bindPopup(feature.properties.Name);
+                 }
+               }
+             L.geoJson(Utilities, {
+                  onEachFeature: onEachFeature
+               })
+
+
 
 		
 	</script>
