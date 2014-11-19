@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+   "crs": { "type": "name", "properties": { "name": "siruseri" } },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"latitude": 12.83076771472138, "longitude": 80.21663188934326, "time": 1, "id": "route1", "name":"A"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.21663188934326,
+          12.83076771472138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"latitude": 12.830746792841255, "longitude": 80.21741509437561, "time": 2, "id": "route1", "name":"B"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.21741509437561,
+          12.830746792841255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"latitude": 12.830715410017804, "longitude": 80.21805882453918, "time": 3, "id": "route1", "name":"C"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.21805882453918,
+          12.830715410017804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"latitude": 12.8308304803513, "longitude": 80.21893858909607, "time": 4, "id": "route1", "name":"D"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.21893858909607,
+          12.8308304803513
+        ]
+      }
+    }
+  ]
+}
