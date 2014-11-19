@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Siruseri</title>
+         
+        <meta charset="utf-8" />
+        
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+             
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+       <style type="text/css">
+         body {
+         padding: 0;
+         margin: 0;
+         }
+         html, body, #map {
+         height: 100%;
+         }
+      </style>
+        
+</head>
+<body>
+	<div id="map"></div>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+                
+        <script src="https://cdn.rawgit.com/SatyaRajitha/My-Data/master/siru_data.js" type="text/javascript"></script>          
+	<script>
+		//var map = L.map('map');
+		var map = L.map('map').setView([12.82905,80.21630], 17);
+            
+		
+              L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-20v6611k'
+		}).addTo(map);
+              
+               L.geoJson(Building, {
+                 style: function(feature) {
+                 switch (feature.properties.Name) {
+                    case 'EB1': return {color: "#000000"};
+		    case 'EB3': return {color: "#affa00"};
+		    case 'EB4': return {color: "#660000"};
+		    case 'EB6': return {color: "#cc6600"};
+                    case 'EB2': return {color: "#0000ff"};
+		    case 'EB5': return {color: "#33ff33"};
+                    case 'IRC': return {color: "#e50000"};
+                  }
+                }
+             }).addTo(map);
+            
+                function onEachFeatur(feature, layer) {
+             
+               
+                if (feature.properties && feature.properties.popupContent) {
+                layer.bindPopup(feature.properties.popupContent);
+                 }
+               }
+              L.geoJson(Building, {
+                  onEachFeature: onEachFeatur
+               }).addTo(map);
+           
+             var geojsonMarkerOptions = {
+                   radius: 8,
+                   fillColor: "#ff7800",
+                   color: "#000",
+                   weight: 1,
+                   opacity: 1,
+                   fillOpacity: 0.8
+                  };
+               L.geoJson(Gates, {
+               pointToLayer: function (feature, latlng) {
+               return L.circleMarker(latlng, geojsonMarkerOptions);
+               }
+               }).addTo(map);
+              
+             var myStyle = {
+                "color": "#ff65ee",
+                "weight": 5,
+                "opacity": 0.65
+               };
+             L.geoJson(Utilities,{
+               style : myStyle, 
+               onEachFeature: onEachFeature     
+               }).addTo(map);
+             function onEachFeature(feature, layer) {              
+                 if (feature.properties) {
+                layer.bindPopup(feature.properties.Name);
+                 }
+               }
+               
+            function onLocationFound(e) {
+			var radius = e.accuracy / 2;
+			L.marker(e.latlng).addTo(map)
+				.bindPopup("You are within " + radius + " meters from this point").openPopup();
+			L.circle(e.latlng, radius).addTo(map);
+		}
+		function onLocationError(e) {
+			alert(e.message);
+		}
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+		map.locate({setView: true, maxZoom: 16});
+            
+		
+	</script>
+</body>
+</html>
