@@ -166,7 +166,17 @@
         // way to do this!
         var originANDdestination = [featuresdata[0], featuresdata[3]]
  
-        
+        var text = g.selectAll("text")
+            .data(originANDdestination)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                return d.properties.name
+            })
+            .attr("class", "locnames")
+            .attr("y", function(d) {
+                return -10
+            })
  
  
         // when the user zooms in or out you need to reset
