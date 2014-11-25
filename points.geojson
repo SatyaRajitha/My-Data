@@ -46,5 +46,28 @@
         ]
       }
     }
+    {
+      "type": "Feature",
+      "properties": {"latitude": 12.829554242798094, "longitude": 80.21867573261261, "time": 4, "id": "route1", "name":"EB2","origin":"EB2","dest":"EB5"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.21867573261261,
+          12.829554242798094
+        ]
+      }
+    }
+    {
+      "type": "Feature",
+      "properties": {"latitude": 12.829554242798094, "longitude": 80.21698594093323, "time": 4, "id": "route1", "name":"EB5","origin":"EB2","dest":"EB5"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.21698594093323,
+          12.829554242798094
+        ]
+      }
+    }
+    
   ]
 }
